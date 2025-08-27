@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+</head>
+<body>
+  <h1>Your Profile</h1>
+
+  <% if (profile) { %>
+    <% if (isEditing) { %>
+      <!-- Edit form -->
+      <form method="POST" action="/profile">
+        <label>Email</label><br/>
+        <input type="email" name="email" required value="<%= profile.email %>" /><br/>
+
+        <label>Birthday</label><br/>
+        <!-- ✅ close the tag properly; avoid timezone conversion -->
+        <input type="date" name="birthday" required
+               value="<%= profile && profile.birthday ? profile.birthday : '' %>" /><br/>
+
+        <label>Address</label><br/>
+        <input type="text" name="address" required value="<%= profile.address %>" /><br/><br/>
+
+        <button type="submit">Save</button>
+      </form>
+    <% } else { %>
+      <!-- View mode -->
+      <p><strong>Email:</strong> <%= profile.email %></p>
+      <!-- ✅ show raw date string from DB to avoid timezone shifts -->
+      <p><strong>Birthday:</strong> <%= profile.birthday %></p>
+      <p><strong>Address:</strong> <%= profile.address %></p>
+      <a href="/profile?edit=1">Edit Profile</a>
+    <% } %>
+  <% } else { %>
+    <!-- No profile yet -->
+    <form method="POST" action="/profile">
+      <label>Email</label><br/>
+      <input type="email" name="email" required /><br/>
+
+      <label>Birthday</label><br/>
+      <input type="date" name="birthday" required /><br/>
+
+      <label>Address</label><br/>
+      <input type="text" name="address" required /><br/><br/>
+
+      <button type="submit">Create Profile</button>
+    </form>
+  <% } %>
+
+  <p><a href="/">Back to Gallery</a></p>
+</body>
+</html>

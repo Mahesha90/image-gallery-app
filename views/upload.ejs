@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Image</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Upload Image</h1>
+
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" required>
+
+    <p>Visibility:</p>
+    <label>
+      <input type="radio" name="visibility" value="public" checked>
+      Public
+    </label>
+    <label>
+      <input type="radio" name="visibility" value="private">
+      Private
+    </label>
+
+    <br><br>
+    <button type="submit">Upload</button>
+  </form>
+
+  <p><a href="/">Back to Gallery</a></p>
+</body>
+</html>

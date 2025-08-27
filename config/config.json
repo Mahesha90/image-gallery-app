@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "appuser",
+    "password": "strongpassword",
+    "database": "student_management",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "gallery_app_test",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "gallery_app_prod",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  }
+}
